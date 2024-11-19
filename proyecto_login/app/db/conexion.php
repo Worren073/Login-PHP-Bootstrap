@@ -3,7 +3,7 @@
     class Conexion{
         public static function Conectar(){
             define('servidor','localhost');
-            define('nombre_bd','login');
+            define('nombre_bd','proyecto_login');
             define('usuario','root');
             define('password','');
 

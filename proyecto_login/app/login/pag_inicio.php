@@ -1,8 +1,10 @@
 <?php
 session_start();
 
-if($_SESSION["s_username"] === null){
+// Si la sesión no está activa, redirigir a la página de login
+if ($_SESSION["s_username"] === null) {
     header("Location: index.php");
+    exit();
 }
 ?>
 <!DOCTYPE html>
@@ -27,7 +29,7 @@ if($_SESSION["s_username"] === null){
                     <h2 class="text-center">Usuario: <span class="badge badge-primary bg-info"><?php echo $_SESSION["s_username"];?></span></h2>
                     <p class="lead text-center">Pagina de inicio</p>
                     <hr class="my-4">
-                    <a class="btn btn-danger btn-lg" href="../db/logout.php" role="button">Cerrar Sesión</a>
+                    <a class="btn btn-danger btn-lg" href="../db/logout.php" id="logoutBtn" role="button">Cerrar Sesión</a>
 
                 </div>
             </div>
@@ -38,6 +40,29 @@ if($_SESSION["s_username"] === null){
 <script src="../../assets/js/bootstrap.bundle.min.js"></script>
 <script src="codigo.js"></script>
 <script src="../../assets/sweetalert/sweetalert2.all.min.js"></script>
+
+<script>
+        // Manejador de evento para el botón de Cerrar Sesión
+        document.querySelector('#logoutBtn').addEventListener('click', function (event) {
+            event.preventDefault();  // Prevenir la acción predeterminada de redirigir inmediatamente
+
+            // Mostrar la ventana de confirmación de SweetAlert2
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: "¡Se cerrará tu sesión!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Sí, cerrar sesión',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                // Si el usuario confirma, redirigir a logout.php para cerrar la sesión
+                if (result.isConfirmed) {
+                    window.location.href = "../db/logout.php"; // Redirige al archivo de logout para destruir la sesión
+                }
+            });
+        });
+</script>
+
 
 </body>
   
