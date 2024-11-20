@@ -26,8 +26,8 @@ $('#formlogin').submit(function(e) {
                     Swal.fire({
                         icon:'success',
                         title:'La conexión ha sido exitosa',
-                        confirmButtomColor:"white",
-                        confirmButtonText:"Ingresar"
+                        text: "Bienvenid@",
+                        confirmButtonText:"Ingresar",
                     }).then((result) => {
                         if (result.isConfirmed) {
                             window.location.href = "pag_inicio.php";

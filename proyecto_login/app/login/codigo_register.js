@@ -20,7 +20,7 @@ $('#formregister').submit(function(e) {
                     Swal.fire({
                         icon: 'success',
                         title: 'Registro exitoso',
-                        confirmButtonColor: "white",
+                        text: "Ya puedes iniciar sesion",
                         confirmButtonText: "Ingresar"
                     }).then((result) => {
                         if (result.isConfirmed) {

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../../assets/fontawesome-free-6.5.2-web/css/all.min.css">
     <link rel="stylesheet" href="../../assets/sweetalert/sweetalert2.min.css">
 </head>
-<body class="bg-info d-flex justify-content-center align-items-center vh-100">
+<body class="bg-success d-flex justify-content-center align-items-center vh-100">
 
 <div>
     <div class="bg-white p-5 rounded-5 text-secondary" style="width: 25rem">
@@ -19,21 +19,21 @@
             <div class="text-center fs-2 fw-bold">Registro</div>
 
             <div class="input-group mt-2">
-                <i class="fa-solid fa-user input-group-text bg-info" style="color: white; padding-top: 10px;"></i>
-                <input class="form-control" type="text" placeholder="Username" name="username" id="username">
+                <i class="fa-solid fa-user input-group-text bg-success" style="color: white; padding-top: 10px;"></i>
+                <input class="form-control" type="text" placeholder="Usuario" name="username" id="username">
             </div>
 
             <div class="input-group mt-2">
-                <i class="fa-solid fa-key input-group-text bg-info" style="color: white;  padding-top: 10px;"></i>
-                <input class="form-control" type="password" placeholder="Password" name="password" id="password">
+                <i class="fa-solid fa-key input-group-text bg-success" style="color: white;  padding-top: 10px;"></i>
+                <input class="form-control" type="password" placeholder="Contraseña" name="password" id="password">
             </div>
 
             <div>
-                <input type="submit" name="submit" class="btn btn-info text-white w-100 mt-2" value="Registrar">
+                <input type="submit" name="submit" class="btn btn-success text-white w-100 mt-2" value="Registrar">
             </div>
 
             <div>
-                <a href="index.php" class="btn btn-info text-white w-100 mt-2">Cancelar</a>
+                <a href="index.php" class="btn btn-success text-white w-100 mt-2">Cancelar</a>
             </div>
         </form>
     </div>

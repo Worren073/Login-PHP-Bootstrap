@@ -18,7 +18,7 @@ if ($_SESSION["s_username"] === null) {
     <link rel="stylesheet" href="../../assets/fontawesome-free-6.5.2-web/css/all.min.css">
     <link rel="stylesheet" href="../../assets/sweetalert/sweetalert2.min.css">
 </head>
-<body  class="bg-info d-flex justify-content-center align-items-center vh-100">
+<body  class="bg-success d-flex justify-content-center align-items-center vh-100">
 
     <div class="bg-white p-5 rounded-5 text-secondary" style="width: 25rem">
         <div class="row">
@@ -26,7 +26,7 @@ if ($_SESSION["s_username"] === null) {
                 <div class="jumbotron">
 
                     <h1 class="display-4 text-center">Bienvenido</h1>
-                    <h2 class="text-center">Usuario: <span class="badge badge-primary bg-info"><?php echo $_SESSION["s_username"];?></span></h2>
+                    <h2 class="text-center">Usuario: <span class="badge badge-primary bg-success"><?php echo $_SESSION["s_username"];?></span></h2>
                     <p class="lead text-center">Pagina de inicio</p>
                     <hr class="my-4">
                     <a class="btn btn-danger btn-lg" href="../db/logout.php" id="logoutBtn" role="button">Cerrar Sesión</a>
