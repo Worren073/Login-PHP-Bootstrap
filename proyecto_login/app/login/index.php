@@ -43,7 +43,7 @@
 
             <div class="d-flex aligm-items-center justify-content-center gap-1 mt-2">
                 <i class="fa-solid fa-user-plus mt-1"></i>
-                <a href="index_registro.php" class="text-decoration-none text-success fw-bold">Registrar</a>
+                <a href="index_registro.php" class="text-decoration-none text-success fw-bold">Registrarse</a>
             </div>
 
         </form>
