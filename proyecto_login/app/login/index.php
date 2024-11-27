@@ -12,7 +12,7 @@
 <body class="bg-success d-flex justify-content-center align-items-center vh-100">
 
 <div>
-    <div class="bg-white     p-5 rounded-5 text-secondary" style="width: 25rem">
+    <div class="bg-white     p-5 rounded-5 text-muted" style="width: 25rem">
         <div class="d-flex justify-content-center" style="font-size: 7rem"><i class="fa-solid fa-circle-user"></i></div>
         
         <form id="formlogin" class="form" action="" method="post">
@@ -33,12 +33,11 @@
             </div>
 
             <div class="d-flex aligm-items-center justify-content-center gap-1 mt-2">
-                <i class="fa-solid fa-question mt-1"></i>
-                <a href="#" class="text-decoration-none text-success fw-bold">Olvide mi contraseña</a>
+                <a href="#" class="text-decoration-none text-success fw-bold fst-italic" style= "font-size: 0.9rem">Olvide mi contraseña</a>
             </div>
 
             <div>
-                <input type="submit" name="submit" class="btn btn-success text-white w-100 mt-2" value="Iniciar Sesion">
+                <input type="submit" name="submit" class="btn btn-success text-white w-100 mt-3" value="Iniciar Sesión">
             </div>
 
             <div class="d-flex aligm-items-center justify-content-center gap-1 mt-2">

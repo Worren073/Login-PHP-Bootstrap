@@ -2,13 +2,9 @@
 session_start();
 
 // Si la sesión no está activa, redirigir a la página de login
-if ($_SESSION["s_username"] === null) {
+if (!isset($_SESSION["s_username"])) {
     header("Location: index.php");
     exit();
-}else{
-    if($_SESSION["s_idRol"]!=1){
-        header("Location: pag_error.php");
-    }
 }
 ?>
 <!DOCTYPE html>
@@ -22,19 +18,25 @@ if ($_SESSION["s_username"] === null) {
     <link rel="stylesheet" href="../../assets/fontawesome-free-6.5.2-web/css/all.min.css">
     <link rel="stylesheet" href="../../assets/sweetalert/sweetalert2.min.css">
 </head>
-<body  class="bg-success d-flex justify-content-center align-items-center vh-100">
+<body class="bg-success d-flex justify-content-center align-items-center vh-100">
 
     <div class="bg-white p-5 rounded-5 text-secondary" style="width: 25rem">
         <div class="row">
             <div class="col-lg-12">
                 <div class="jumbotron">
-
-                    <h1 class="display-4 text-center">Bienvenido</h1>
+                    <h1 class="display-4 text-center">Permisos</h1>
                     <h2 class="text-center">Usuario: <span class="badge badge-primary bg-success"><?php echo $_SESSION["s_username"];?></span></h2>
-                    <p class="lead text-center">Pagina de inicio</p>
+                    <p class="lead text-center">Usted NO tiene permisos de Administrador</p>
+                    <h2 class="text-center">Su permiso es: <span class="badge badge-warning bg-success">
+                        <?php 
+                        if (isset($_SESSION["s_rol_descripcion"])) {
+                            echo $_SESSION["s_rol_descripcion"];
+                        } else {
+                            echo "Descripción no disponible";
+                        }
+                        ?></span></h2>
                     <hr class="my-4">
                     <a class="btn btn-danger btn-lg" href="../db/logout.php" id="logoutBtn" role="button">Cerrar Sesión</a>
-
                 </div>
             </div>
         </div>
@@ -67,8 +69,5 @@ if ($_SESSION["s_username"] === null) {
         });
 </script>
 
-
 </body>
-  
-
 </html>
