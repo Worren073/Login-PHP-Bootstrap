@@ -7,7 +7,7 @@ if ($_SESSION["s_username"] === null) {
     exit();
 }else{
     if($_SESSION["s_idRol"]!=1){
-        header("Location: pag_error.php");
+        header("Location: ../Dashboard/index.php");
     }
 }
 ?>

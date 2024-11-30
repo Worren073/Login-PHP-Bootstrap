@@ -30,7 +30,7 @@ $('#formlogin').submit(function(e) {
                         confirmButtonText:"Ingresar",
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = "pag_inicio.php";
+                            window.location.href = "../Dashboard/index.php";
                         }
                     });
                     
