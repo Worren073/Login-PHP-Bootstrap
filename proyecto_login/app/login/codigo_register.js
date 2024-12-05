@@ -2,6 +2,7 @@ $('#formregister').submit(function(e) {
     e.preventDefault();
     var username = $.trim($("#username").val());
     var password = $.trim($("#password").val());
+    var idRol = $.trim($("#idRol").val());
 
     if (username.length === 0 || password.length === 0) {
         Swal.fire({
@@ -14,7 +15,7 @@ $('#formregister').submit(function(e) {
             url: "../db/registro.php",
             type: "POST",
             dataType: "json",
-            data: { username: username, password: password },
+            data: { username: username, password: password, idRol: idRol },
             success: function(data) {
                 if (data.success) {
                     Swal.fire({

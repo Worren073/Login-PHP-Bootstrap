@@ -21,10 +21,7 @@
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
     <!--datables CSS básico-->
-    <link rel="stylesheet" type="text/css" href="../vendor/datatables/datatables.min.css"/>
-    <!--datables estilo bootstrap 4 CSS-->  
-    <link rel="stylesheet"  type="text/css" href="../vendor/datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">      
-    
+    <link rel="stylesheet" type="text/css" href="vendor/datatables/dataTables.bootstrap4.min.css"/>
 
 
 </head>
@@ -232,4 +229,5 @@
 
                 </nav>
                 <!-- End of Topbar -->
-                <script src="../login/codigo.js"></script>
+
+                

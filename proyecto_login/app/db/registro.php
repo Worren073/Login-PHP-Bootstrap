@@ -28,7 +28,7 @@ if ($resultado->rowCount() > 0) {
     exit();
 }
 
-$consulta = "INSERT INTO usuarios (username, password,) VALUES (:username, :password)";
+$consulta = "INSERT INTO usuarios (username, password, idRol) VALUES (:username, :password, 0)";
 $resultado = $conexion->prepare($consulta);
 $resultado->bindParam(':username', $username, PDO::PARAM_STR);
 $resultado->bindParam(':password', $pass, PDO::PARAM_STR);

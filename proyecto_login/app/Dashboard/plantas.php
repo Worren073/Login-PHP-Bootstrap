@@ -19,7 +19,6 @@ include_once '../db/conexion.php';
 $objeto = new Conexion();
 $conexion = $objeto->Conectar();
 
-
 $consulta = "SELECT id, nombre_comun, nombre_cien, fecha_siembra, etapa, tipo, cantidad FROM plantas";
 $resultado = $conexion->prepare($consulta);
 $resultado->execute();
@@ -29,7 +28,7 @@ $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
 <div class="container">
         <div class="row">
             <div class="col-lg-12">            
-            <button id="btnNuevo" type="button" class="btn btn-success" data-toggle="modal">Nuevo</button>    
+            <button id="btnNuevo" type="button" class="btn btn-success" data-toggle="modal" data-target="#modalCRUD">Nuevo</button>
             </div>    
         </div>    
     </div>    
@@ -41,7 +40,7 @@ $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
                         <table id="tablaPersonas" class="table table-striped table-bordered table-condensed" style="width:100%">
                         <thead class="text-center">
                             <tr>
-                                <th>Id</th>
+                                <!-- <th>Id</th> -->
                                 <th>Nombre</th>
                                 <th>Nombre Cientifico</th>
                                 <th>Fecha</th>
@@ -55,7 +54,7 @@ $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
                             foreach($data as $dat) {                                                        
                             ?>
                             <tr>
-                                <td><?php echo $dat['id'] ?></td>
+                                <!-- <?php echo $dat['id'] ?> -->
                                 <td><?php echo $dat['nombre_comun'] ?></td>
                                 <td><?php echo $dat['nombre_cien'] ?></td>
                                 <td><?php echo $dat['fecha_siembra'] ?></td>
@@ -73,42 +72,100 @@ $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
         </div>  
     </div>    
       
-<!--Modal para CRUD-->
+<!-- Otros contenidos de tu archivo plantas.php -->
+
+<!-- Modal para CRUD -->
 <div class="modal fade" id="modalCRUD" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <h5 class="modal-title" id="exampleModalLabel">Agregar Planta</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
             </div>
-        <form id="formPersonas">    
-            <div class="modal-body">
-                <div class="form-group">
-                <label for="nombre" class="col-form-label">Nombre:</label>
-                <input type="text" class="form-control" id="nombre">
+            <form id="formPlantas">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="nombre_comun" class="col-form-label">Nombre Común:</label>
+                        <input type="text" class="form-control" id="nombre_comun">
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre_cien" class="col-form-label">Nombre Científico:</label>
+                        <input type="text" class="form-control" id="nombre_cien">
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha_siembra" class="col-form-label">Fecha de Siembra:</label>
+                        <input type="date" class="form-control" id="fecha_siembra">
+                    </div>
+                    <div class="form-group">
+                        <label for="etapa" class="col-form-label">Etapa:</label>
+                        <input type="text" class="form-control" id="etapa">
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo" class="col-form-label">Tipo:</label>
+                        <input type="text" class="form-control" id="tipo">
+                    </div>
+                    <div class="form-group">
+                        <label for="cantidad" class="col-form-label">Cantidad:</label>
+                        <input type="number" class="form-control" id="cantidad">
+                    </div>
                 </div>
-                <div class="form-group">
-                <label for="pais" class="col-form-label">País:</label>
-                <input type="text" class="form-control" id="pais">
-                </div>                
-                <div class="form-group">
-                <label for="edad" class="col-form-label">Edad:</label>
-                <input type="number" class="form-control" id="edad">
-                </div>            
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
-                <button type="submit" id="btnGuardar" class="btn btn-dark">Guardar</button>
-            </div>
-        </form>    
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" id="btnGuardar" class="btn btn-dark">Guardar</button>
+                </div>
+            </form>
         </div>
     </div>
-</div>  
-      
-    
-    
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    $('#formPlantas').submit(function(e) {
+        e.preventDefault(); // Previene el envío del formulario por defecto
+        let nombre_comun = $('#nombre_comun').val();
+        let nombre_cien = $('#nombre_cien').val();
+        let fecha_siembra = $('#fecha_siembra').val();
+        let etapa = $('#etapa').val();
+        let tipo = $('#tipo').val();
+        let cantidad = $('#cantidad').val();
+
+        console.log({
+            nombre_comun: nombre_comun,
+            nombre_cien: nombre_cien,
+            fecha_siembra: fecha_siembra,
+            etapa: etapa,
+            tipo: tipo,
+            cantidad: cantidad
+        });
+
+        $.ajax({
+            url: '../db/insertar_planta.php',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                nombre_comun: nombre_comun,
+                nombre_cien: nombre_cien,
+                fecha_siembra: fecha_siembra,
+                etapa: etapa,
+                tipo: tipo,
+                cantidad: cantidad
+            },
+            success: function(data) {
+                console.log(data);
+                $('#modalCRUD').modal('hide');
+                location.reload(); // Recargar la tabla después de añadir
+            },
+            error: function(xhr, status, error) {
+                console.error(xhr.responseText);
+            }
+        });
+    });
+});
+</script>
+
 <!--FIN del cont principal-->
 
 <?php require_once "vistas/parte_inferior.php" ?>
