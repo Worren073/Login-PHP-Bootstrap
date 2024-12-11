@@ -27,28 +27,22 @@
         </div>
     </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- jQuery -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<!-- Bootstrap JavaScript y jQuery Easing -->
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<!-- Custom scripts for all pages -->
+<script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+<!-- DataTables -->
+<script type="text/javascript" src="vendor/datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-    <!-- datatables JS -->
-    <script type="text/javascript" src="vendor/datatables/dataTables.bootstrap4.min.js"></script>    
+<!-- Otros scripts personalizados -->
+<script src="../login/codigo.js"></script>
 
-
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
-
-    <script src="../login/codigo.js"></script>
 
 </body>
 
