@@ -19,7 +19,7 @@ include_once '../db/conexion.php';
 $objeto = new Conexion();
 $conexion = $objeto->Conectar();
 
-$consulta = "SELECT id, nombre_comun, nombre_cien, fecha_siembra, etapa, tipo, cantidad FROM plantas";
+$consulta = "SELECT id, nombre_comun, nombre_cien, fecha_siembra, etapa, tipo, cantidad, fecha_registro FROM plantas";
 $resultado = $conexion->prepare($consulta);
 $resultado->execute();
 $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
@@ -46,6 +46,7 @@ $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
                             <th>Etapa</th>
                             <th>Tipo</th>
                             <th>Cantidad</th>
+                            <th>Fecha de Registro</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -58,6 +59,7 @@ $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
                             <td><?php echo $dat['etapa'] ?></td>
                             <td><?php echo $dat['tipo'] ?></td>
                             <td><?php echo $dat['cantidad'] ?></td>
+                            <td><?php echo $dat['fecha_registro'] ?></td>
                             <td>
                                 <button class="btnEdit btn btn-info" data-toggle="modal" data-target="#modalCRUD">Editar</button>
                                 <button class="btnDelete btn btn-danger">Eliminar</button>
@@ -95,12 +97,25 @@ $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
                         <input type="date" class="form-control" id="fecha_siembra">
                     </div>
                     <div class="form-group">
-                        <label for="etapa" class="col-form-label">Etapa:</label>
-                        <input type="text" class="form-control" id="etapa">
+                    <label for="etapa" class="col-form-label">Etapa:</label>
+                    <select name="select" class="form-control" id="etapa" required>
+                        
+                            <option value="">Seleccione una Etapa</option>
+                            <option value="pre-germinacion"> Pre-germinación</option>
+                            <option value="trasplante"> Trasplante</option>
+                            <option value="traslado"> Traslado</option>
+                            </select>
+                        
                     </div>
                     <div class="form-group">
                         <label for="tipo" class="col-form-label">Tipo:</label>
-                        <input type="text" class="form-control" id="tipo">
+                        <select name="tipo" class="form-control" id="tipo" required>
+                            <option value="">Seleccione un tipo</option>
+                            <option value="ornamental">Ornamental</option>
+                            <option value="medicinal">Medicinal</option>
+                            <option value="frutal">Frutal</option>
+                            <option value="forestal">Forestal</option>
+                            </select>
                     </div>
                     <div class="form-group">
                         <label for="cantidad" class="col-form-label">Cantidad:</label>
